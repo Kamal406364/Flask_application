@@ -31,20 +31,20 @@ def validate_password(password):
     return  False
     
 
-def uppercase(string):
-    return string.upper()
+# def uppercase(string):
+#     return string.upper()
 
-def lowercase(string):
-    return string.lower()
+# def lowercase(string):
+#     return string.lower()
 
-def captilize_string(string):
-    return  string.capitalize()
+# def captilize_string(string):
+#     return  string.capitalize()
 
-def find_character(a,string):
-    return string.find(a)
+# def find_character(a,string):
+#     return string.find(a)
 
-def join_string(a,b):
-    return ' '.join([a,b])
+# def join_string(a,b):
+#     return ' '.join([a,b])
 
 
 
@@ -63,23 +63,24 @@ def index():
 def upper():
     if request.method=='POST':
         d=json.loads(request.data)
-        string=d['string']
-        result=uppercase(string)
+        string1=d['word']
+        result=string1.upper()
         return jsonify({"result":result})
     
 @app.route('/lowercase',methods=['GET','POST'])
 def lower():
     if request.method=='POST':
         d=json.loads(request.data)
-        string=d['string']
-        result=lowercase(string)
+        string1=d['word']
+        result=string1.lower()
         return jsonify({"result":result})
+
 @app.route('/capitalize',methods=['GET','POST'])
 def capitalize():
     if request.method=='POST':
         d=json.loads(request.data)
-        string=d['string']
-        result=captilize_string(string)
+        string1=d['word']
+        result=string1.capitalize()
         return jsonify({"result":result})
     
 @app.route('/find',methods=['GET','POST'])
@@ -87,8 +88,8 @@ def find_char_route():
     if request.method=='POST':
         d=json.loads(request.data)
         char_=d['char']
-        string=d['string']
-        result=find_character(char_,string)
+        string1=d['word']
+        result=string1.find(char_)
         return jsonify({"result":result})
     
 @app.route('/join', methods=['GET','POST'])
@@ -97,7 +98,8 @@ def join():
         d=json.loads(request.data)
         string1=d['a']
         string2=d['b']
-        result=join_string(string1,string2)
+        result=' '.join([string1,string2])
+
         return jsonify({"result":result})
     
 if __name__ == '__main__':
