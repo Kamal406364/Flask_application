@@ -31,20 +31,6 @@ def validate_password(password):
     return  False
     
 
-# def uppercase(string):
-#     return string.upper()
-
-# def lowercase(string):
-#     return string.lower()
-
-# def captilize_string(string):
-#     return  string.capitalize()
-
-# def find_character(a,string):
-#     return string.find(a)
-
-# def join_string(a,b):
-#     return ' '.join([a,b])
 
 
 
@@ -101,8 +87,7 @@ def join():
         result=' '.join([string1,string2])
 
         return jsonify({"result":result})
-    
-#####sample
+
     
 if __name__ == '__main__':
     app.run(debug=True)
